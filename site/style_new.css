@@ -118,7 +118,9 @@ link-green {
 }
 ul {
     list-style-type: none;
-    margin-top: -.7em;
+}
+ul.black li:first-child {
+    margin-top: .25em;
 }
 li::before {
     content: "+";
@@ -128,6 +130,9 @@ li::before {
     display: inline-block;
     margin: 0 .8em 0 -1em;
     padding: 0;
+}
+ul.black li::before {
+    color: black;
 }
 .scroll-info {
     color: #9b9b9b;
