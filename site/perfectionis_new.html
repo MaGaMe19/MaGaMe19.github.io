@@ -58,32 +58,36 @@
             </div>
             <div v-if="currentTab == 'Who perfectionis is'">
                 <h2>Who perfectionis is</h2>
-                <div class="main">
-                    <div class="portrait-container">
-                        <img src="resources/portrait_vincent.jpg" alt="Portrait of Vincent" id="portrait-vincent" width title="&copy; Mattia Metzler">
-                        <div class="portrait-description">Dr. Vincent Metzler</div>
+                <div class="main two-columns">
+                    <div>
+                        <div class="portrait-container">
+                            <img src="resources/portrait_vincent.jpg" alt="Portrait of Vincent" id="portrait-vincent" width title="&copy; Mattia Metzler">
+                            <div class="portrait-description">Vincent in 2021</div>
+                        </div>
+                        <p>
+                            <b>Perfectionis GmbH</b> has been founded by <g>Dr. Vincent Metzler</g>, an established executive in the international pharmaceutical & biotechnology industry.
+                        </p>
+                        <p>
+                            Overall, Vincent brings over 20 years of commercial operations experience in the international top-pharma and biotech industry, covering the areas of orphan/ultra-orphan drugs, cell therapies, targeted therapies and supportive care, in various therapeutic areas such as oncology, hematology, nephrology, hepatology, neurology and immunology.
+                        </p>
+                        <p>
+                            Vincent holds a Ph.D. in Molecular Biology from the University of Berne, Switzerland. He speaks fluently English, French and German.
+                        </p>
+                        <p>
+                            Besides leading Perfectionis GmbH, Vincent also is the CEO of Kither Biotech, a preclinical stage biopharmaceutical company developing novel therapies for rare pulmonary diseases with high unmet medical needs. The company’s expertise comprises the effective delivery of signal transduction inhibition to the respiratory system, offering a strong potential for improved efficacy and safety in the lung for patients with Cystic Fibrosis, Idiopathic Pulmonary Fibrosis and other respiratory diseases. 
+                        </p>
                     </div>
-                    <p>
-                        <b>Perfectionis GmbH</b> has been founded by Dr. Vincent Metzler, an established executive in the international pharmaceutical & biotechnology industry.
-                    </p>
-                    <p>
-                        Overall, Vincent brings over 20 years of commercial operations experience in the international top-pharma and biotech industry, covering the areas of orphan/ultra-orphan drugs, cell therapies, targeted therapies and supportive care, in various therapeutic areas such as oncology, hematology, nephrology, hepatology, neurology and immunology.
-                    </p>
-                    <p>
-                        Besides leading Perfectionis GmbH, Vincent also is the CEO of Kither Biotech, a preclinical stage biopharmaceutical company developing novel therapies for rare pulmonary diseases with high unmet medical needs. The company’s expertise comprises the effective delivery of signal transduction inhibition to the respiratory system, offering a strong potential for improved efficacy and safety in the lung for patients with Cystic Fibrosis, Idiopathic Pulmonary Fibrosis and other respiratory diseases. 
-                    </p>
-                    <p>
-                        Before founding Perfectionis GmbH, Vincent acted as Vice President, Head of Marketing and Commercial Operations, Europe, at Atara Biotherapeutics, a leading immunotherapy company developing allogeneic, off-the-shelf virus-specific T cells for the treatment of virus-associated disorders like Epstein-Barr Virus-positive Post-Transplant Lymphoproliferative Disease (EBV+ PTLD). In this role Vincent was member of the European Leadership Team, driving the commercial expansion of Atara Biotherapeutics’ operations across the major European markets, and leading all marketing and commercial operations strategies and initiatives for the launch of the first cell therapy of its kind in Europe, in an ultra-rare disease.
-                    </p>
-                    <p>
-                        Previously, Vincent served as a member of the Executive Leadership Team of Wilson Therapeutics, a Swedish biotech company in clinical-stage development of a novel therapeutic agent for Wilson Disease, a rare disease of impaired copper metabolism. He played a pivotal role in the M&A activities that led to the acquisition of Wilson Therapeutics by Alexion in May 2018, through a public cash offer corresponding to a total company value of approx. SEK 7.1 billion (USD 855 million).
-                    </p>
-                    <p>
-                        Earlier in his career, Vincent was holding senior commercial leadership positions at Alexion Pharmaceuticals, lastly as Head of EMEA Marketing Soliris<sup>&reg;</sup> & Core Member of the Soliris<sup>&reg;</sup> Global Leadership Team, and held various marketing & sales positions at Miltenyi Biotec GmbH, F. Hoffmann-La Roche Ltd, Amgen Inc. and Idexx Laboratories. During his commercial career, Vincent did lead several key local and international pharmaceutical product launches.
-                    </p>
-                    <p>
-                        Vincent holds a Ph.D. in Molecular Biology from the University of Berne, Switzerland. He speaks fluently English, French and German.
-                    </p>
+                    <div>
+                        <p>
+                            Before founding Perfectionis GmbH, Vincent acted as Vice President, Head of Marketing and Commercial Operations, Europe, at Atara Biotherapeutics, a leading immunotherapy company developing allogeneic, off-the-shelf virus-specific T cells for the treatment of virus-associated disorders like Epstein-Barr Virus-positive Post-Transplant Lymphoproliferative Disease (EBV+ PTLD). In this role Vincent was member of the European Leadership Team, driving the commercial expansion of Atara Biotherapeutics’ operations across the major European markets, and leading all marketing and commercial operations strategies and initiatives for the launch of the first cell therapy of its kind in Europe, in an ultra-rare disease.
+                        </p>
+                        <p>
+                            Previously, Vincent served as a member of the Executive Leadership Team of Wilson Therapeutics, a Swedish biotech company in clinical-stage development of a novel therapeutic agent for Wilson Disease, a rare disease of impaired copper metabolism. He played a pivotal role in the M&A activities that led to the acquisition of Wilson Therapeutics by Alexion in May 2018, through a public cash offer corresponding to a total company value of approx. SEK 7.1 billion (USD 855 million).
+                        </p>
+                        <p>
+                            Earlier in his career, Vincent was holding senior commercial leadership positions at Alexion Pharmaceuticals, lastly as Head of EMEA Marketing Soliris<sup>&reg;</sup> & Core Member of the Soliris<sup>&reg;</sup> Global Leadership Team, and held various marketing & sales positions at Miltenyi Biotec GmbH, F. Hoffmann-La Roche Ltd, Amgen Inc. and Idexx Laboratories. During his commercial career, Vincent did lead several key local and international pharmaceutical product launches.
+                        </p>
+                    </div>
                 </div>
             </div>
             <div v-if="currentTab == 'What perfectionis offers'">
@@ -123,30 +127,60 @@
                         If required, Perfectionis GmbH will collaborate with your current service providers or will be pleased to introduce you to its network of trusted and reliable service providers (e.g. event management, health economics, market research, creative design…).
                     </p>
                     <p>
-                        You have a very specific need? Don’t hesitate to <link-green v-on:click="switchToTab('Contact')">contact us</link-green>, <b>perfectionis</b> will be happy to assist!
+                        You have a very specific need? Don’t hesitate to <link-green v-on:click="switchToTab('Contact')">contact us</link-green>, perfectionis will be happy to assist!
                     </p>
                 </div>
             </div>
             <div v-if="currentTab == 'How perfectionis operates'">
                 <h2>How perfectionis operates</h2>
                 <div class="main">
-                    
+                    <b>Perfectionis GmbH</b> always strives to serve you according to the <g>highest standards and principles</g> of:
+                    <ul class="space-between-li">
+                        <li>
+                            <b>Quality</b>
+                            <br>You deserve the highest quality deliverables – explain what you expect and perfectionis will deliver accordingly
+                        </li>
+                        <li>
+                            <b>Reliability</b>
+                            <br>You want to avoid any surprise – perfectionis will partner with you / your team in a constant exchange of information, to ensure that your project progresses as expected
+                        </li>
+                        <li>
+                            <b>Timeliness</b>
+                            <br>You must meet your timelines – share them and perfectionis will develop a detailed project plan and deliver against it
+                        </li>
+                        <li>
+                            <b>Cost effectiveness</b>
+                            <br>You choose between two costing models, depending on your needs and constrains:
+                            <ul class="black space-between-li">
+                                <li>hourly fee<br>⇨ provides you flexibility as your project progresses</li>
+                                <li>fixed fee package<br>⇨ provides you full predictability and control of your budget</li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
             </div>
             <div v-if="currentTab == 'Contact'">
                 <h2>Contact</h2>
                 <div class="main">
-
+                    <p>
+                        You can reach <b>Perfectionis GmbH</b> very easily:
+                        <ul class="space-between-li">
+                            <li><b>e-mail</b><br>Just send your comment or request to <a href="mailto:info@perfectionis.com">info@perfectionis.com</a></li>
+                            <li>
+                                <b>Contact form</b>
+                                <br>If you have a detailed request, please use the contact form below. This will help us answering more precisely to your inquiry.
+                                <br>TODO
+                            </li>
+                        </ul>
+                    </p>
                 </div>
             </div>
-
-            <div class="scroll-info">Scroll above to see more</div>
-        </div>
-        <div class="icons-bottom">
-            <div class="icon-bottom" v-on:click="showAGB()" title="View the General Terms and Conditions (Allgemeine Geschäftsbedingungen)">GTC / AGB</div>
-            <div class="copyright" title="Toggle copyright information">
-                <span v-on:click="toggleCopyright()" class="icon-bottom">C</span>
-                <span v-if="copyrightShown" class="copyright-text">Copyright &copy; 2020-2021 Perfectionis GmbH. All rights reserved. Design by Mattia Metzler</span>
+            <div class="icons-bottom">
+                <div class="icon-bottom" v-on:click="showAGB()" title="View the General Terms and Conditions (Allgemeine Geschäftsbedingungen)">GTC / AGB</div>
+                <div class="copyright" title="Toggle copyright information">
+                    <span v-on:click="toggleCopyright()" class="icon-bottom">C</span>
+                    <span v-if="copyrightShown" class="copyright-text">Copyright &copy; 2020-2021 Perfectionis GmbH. All rights reserved. Design by Mattia Metzler</span>
+                </div>
             </div>
         </div>
     </div>
