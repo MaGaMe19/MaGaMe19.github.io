@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
     <link rel="icon" href="graphics/Icon_C.png">
+    <script src="reportWindowSize.js"></script>
     <title>perfectionis</title>
 </head>
 <body>
@@ -21,9 +22,26 @@
     </div>
     <div id="app">
         <div class="main-center">
-            <div class="flex-header">
-                <img src="graphics/Perfectionis_Logo_C.png" alt="perfectionis logo" v-on:click="switchToTab('Why perfectionis')" title="Home">
-                <div id="description-top">your commercial pharma/biotech team extension</div>
+            <div class="grid-header">
+                <div class="flex-header">
+                    <img src="graphics/Perfectionis_Logo_C.png" alt="perfectionis logo" v-on:click="switchToTab('Why perfectionis')" title="Home">
+                    <div id="description-top">
+                        your commercial pharma/biotech team extension
+                        
+                        <span id="report-size">
+                            <span id="width"></span><span>px x </span><span id="height"></span><span>px</span>
+                        </span>
+                    </div>
+                </div>
+                <div onclick="javascript:toggleMenu()" title="Open / Close the side menu">
+                    <span class="open-menu">&#9776;</span>
+                </div>
+            </div>
+
+            <div class="side-nav">
+                <div v-for="option in menuOptions"
+                v-on:click="switchToTab(option)"
+                :class="{highlighted: option == currentTab}">{{option}}</div>
             </div>
 
             <div class="menu-bar">
@@ -203,7 +221,8 @@
 
                 function switchToTab(tab) {
                     currentTab.value = tab;
-                    localStorage.setItem("currentTab", tab)
+                    localStorage.setItem("currentTab", tab);
+                    toggleMenu();
                 }
 
                 let copyrightShown = ref(false);
@@ -232,6 +251,19 @@
                 }
             }
         }).mount("#app");
+
+        var sideNav = document.querySelector(".side-nav");
+        var sideNavOpen = false;
+
+        function toggleMenu() {
+            if (sideNavOpen) {
+                sideNavOpen = false;
+                sideNav.style.left = -50 + "rem";
+            } else {
+                sideNavOpen = true;
+                sideNav.style.left = 0;
+            }
+        }
     </script>
 </body>
 </html>
