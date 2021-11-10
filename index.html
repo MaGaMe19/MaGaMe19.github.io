@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="perfectionis - your commercial pharma/biotech team extension">
     <meta name="keywords" content="perfectionis,pharma,biotech,extension">
-    <meta name="author" content="Vincent Metzler, Mattia Metzler">
+    <meta name="author" content="Vincent Metzler">
     <script src="https://unpkg.com/vue@next"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Teko&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&family=Poppins&family=Quicksand&family=Ubuntu&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
     <link rel="icon" href="graphics/Icon_C.png">
     <script src="reportWindowSize.js"></script>
     <title>perfectionis</title>
@@ -24,23 +24,23 @@
         <div class="main-center">
             <div class="grid-header">
                 <div class="flex-header">
-                    <img src="graphics/Perfectionis_Logo_C.png" alt="perfectionis logo" v-on:click="switchToTab('Why perfectionis')" title="Home">
+                    <img src="graphics/Perfectionis_Logo_C.png" id="logo" alt="perfectionis logo" v-on:click="switchToTab('Why perfectionis')" title="Home">
                     <div id="description-top">
                         your commercial pharma/biotech team extension
                         
-                        <span id="report-size">
+                        <!-- <span id="report-size">
                             <span id="width"></span><span>px x </span><span id="height"></span><span>px</span>
-                        </span>
+                        </span> -->
                     </div>
                 </div>
-                <div onclick="javascript:toggleMenu()" title="Open / Close the side menu">
-                    <span class="open-menu">&#9776;</span>
+                <div onclick="javascript:toggleMenu()" title="Open / Close the side navigation">
+                    <span id="open-menu">&#9776;</span>
                 </div>
             </div>
 
             <div class="side-nav">
                 <div v-for="option in menuOptions"
-                v-on:click="switchToTab(option)"
+                v-on:click="switchToTab(option, true)"
                 :class="{highlighted: option == currentTab}">{{option}}</div>
             </div>
 
@@ -57,7 +57,7 @@
                         Our reason to be, and our ambition, is to serve as <g>the perfect extension of your commercial team</g> <b>within your pharmaceutical/biotech company.</b>
                     </p>
                     <p>
-                        If you answer “yes” to any of the questions below, then you should <link-green v-on:click="switchToTab('Contact')">contact us</link-green>!
+                        If you answer “yes” to any of the questions below, then you should <span class="link-green" v-on:click="switchToTab('Contact')">contact us</span>!
                         <ul>
                             <li>Do you have <b>high quality expectations</b> for your business deliverables?</li>
                             <li>Do you seek for a <b>trustful relationship</b> with your business partners?</li>
@@ -145,7 +145,7 @@
                         If required, Perfectionis GmbH will collaborate with your current service providers or will be pleased to introduce you to its network of trusted and reliable service providers (e.g. event management, health economics, market research, creative design…).
                     </p>
                     <p>
-                        You have a very specific need? Don’t hesitate to <link-green v-on:click="switchToTab('Contact')">contact us</link-green>, perfectionis will be happy to assist!
+                        You have a very specific need? Don’t hesitate to <span class="link-green" v-on:click="switchToTab('Contact')">contact us</span>, perfectionis will be happy to assist!
                     </p>
                 </div>
             </div>
@@ -189,7 +189,7 @@
                 </div>
             </div>
             <div class="icons-bottom">
-                <div class="icon-bottom" v-on:click="showAGB()" title="View the General Terms and Conditions (Allgemeine Geschäftsbedingungen)">GTC / AGB</div>
+                <div class="icon-bottom" v-on:click="showAGB()" title="View the General Terms and Conditions (Allgemeine Geschäftsbedingungen)">GTC&nbsp;/&nbsp;AGB</div>
                 <div class="copyright" title="Toggle copyright information">
                     <span v-on:click="toggleCopyright()" class="icon-bottom">C</span>
                     <span v-if="copyrightShown" class="copyright-text">Copyright &copy; 2020-2021 Perfectionis GmbH. All rights reserved.</span>
@@ -219,10 +219,11 @@
                     localStorage.setItem("currentTab", "Why perfectionis");
                 }
 
-                function switchToTab(tab) {
+                function switchToTab(tab, menu=false) {
                     currentTab.value = tab;
                     localStorage.setItem("currentTab", tab);
-                    toggleMenu();
+                    if (menu)
+                        toggleMenu();
                 }
 
                 let copyrightShown = ref(false);
@@ -253,15 +254,18 @@
         }).mount("#app");
 
         var sideNav = document.querySelector(".side-nav");
+        var openMenuBtn = document.querySelector("#open-menu");
         var sideNavOpen = false;
 
         function toggleMenu() {
             if (sideNavOpen) {
                 sideNavOpen = false;
-                sideNav.style.left = -50 + "rem";
+                sideNav.style.left = -100 + "rem";
+                openMenuBtn.innerHTML = "&#9776;";
             } else {
                 sideNavOpen = true;
                 sideNav.style.left = 0;
+                openMenuBtn.innerHTML = "&#10006;";
             }
         }
     </script>

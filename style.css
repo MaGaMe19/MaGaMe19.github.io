@@ -8,7 +8,8 @@ html {
     font-size: 1em; /* change to change sizing of whole website */
 }
 body {
-    font-family: 'Nunito', sans-serif;
+    font-family: 'Ubuntu', sans-serif; /* available: Nunito, Poppins, Quicksand, Ubuntu */
+    font-weight: 100;
     margin: 0;
     background-color: #d3ebde;
     overflow-y: scroll;
@@ -83,7 +84,7 @@ sup {
     margin-left: .2rem;
 }
 /* ============================================================== Menu */
-.open-menu {
+#open-menu {
     display: none;
 }
 .side-nav {
@@ -124,14 +125,14 @@ sup {
     gap: 1.5rem;
 }
 h2 {
-    margin: 1rem 0;
+    margin: 1.5rem 0 1rem 0;
     font-size: 1.5rem;
 }
-a, g, link-green {
+a, g, .link-green {
     color: var(--light-green);
     font-weight: bolder;
 }
-a, link-green {
+a, .link-green {
     text-decoration-line: underline;
     text-decoration-thickness: 2px;
     text-underline-offset: 2px;
@@ -149,7 +150,7 @@ ul.black li:last-child {
 }
 li {
     padding-left: .75rem;
-    margin-left: -.5em;
+    margin: .2rem 0 0 -.5em;
 }
 li::marker {
     content: "+";
@@ -216,7 +217,7 @@ ul.space-between-li li {
 }
 
 /* ============================================================== Responsive */
-@media screen and (max-width: 1360px){
+@media screen and (max-width: 1360px) {
     .menu-bar {
         display: none;
     }
@@ -226,21 +227,22 @@ ul.space-between-li li {
     }
 
     /* ========================================================== Side-Nav */
-    .open-menu {
+    #open-menu {
         display: block;
         color: var(--light-green);
         font-size: 2.5rem;
         cursor: pointer;
         transition: color .3s;
+        user-select: none;
     }
-    .open-menu:hover {
+    #open-menu:hover {
         color: #38885d;
     }
     .side-nav {
         display: block;
         position: fixed;
         top: 0;
-        left: -50rem;
+        left: -100rem;
         background-color: #38885d;
         color: white;
         width: 35vw;
@@ -258,15 +260,34 @@ ul.space-between-li li {
     }
 }
 
-@media screen and (max-width: 1000px){
+@media screen and (max-width: 1000px) {
     .two-columns {
         display: block;
     }
 }
 
-@media screen and (max-width: 800px){
+@media screen and (max-width: 800px) {
     .main-center {
         margin: 0;
         width: auto;
+    }
+}
+@media screen and (max-width: 720px) {
+    .side-nav {
+        width: 50vw;
+    }
+    .flex-header img {
+        width: 200px;
+    }
+    #description-top {
+        font-size: 1.3rem;
+    }
+}
+@media screen and (max-width: 500px) {
+    .side-nav {
+        width: 70vw;
+    }
+    #portrait-vincent {
+        width: 9rem;
     }
 }
