@@ -3,12 +3,13 @@
     --light-green: #00B050;
     --transp-light-green: rgba(81, 220, 118, 0.3);
     --default-radius: 8px;
+    --font: "Ubuntu", monospace; /* available: Nunito, Poppins, Quicksand, Ubuntu */
 }
 html {
     font-size: 1em; /* change to change sizing of whole website */
 }
 body {
-    font-family: 'Ubuntu', sans-serif; /* available: Nunito, Poppins, Quicksand, Ubuntu */
+    font-family: var(--font);
     font-weight: 100;
     margin: 0;
     background-color: #d3ebde;
@@ -37,6 +38,22 @@ sup {
     font-size: 1rem;
 }
 
+button {
+    outline: none;
+    font-family: var(--font);
+    background-color: var(--transp-light-green);
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: .2rem 1rem;
+    transition: background-color .3s;
+    cursor: pointer;
+    font-size: 1.01rem;
+    color: black;
+}
+button:hover {
+    background-color: rgba(81, 200, 118, .65) !important;
+}
+
 /* ============================================================== Background */
 /*  bg: background
     tl: top left
@@ -61,6 +78,7 @@ sup {
     right: 0;
     width: 40vw;
 }
+
 /* ============================================================== Center and Header */
 .main-center {
     background-color: #f6fffacc;
@@ -75,7 +93,7 @@ sup {
     flex-direction: column;
 }
 .flex-header img {
-    width: 250px;
+    width: 17rem;
     cursor: pointer;
 }
 #description-top {
@@ -83,6 +101,7 @@ sup {
     font-size: 2rem;
     margin-left: .2rem;
 }
+
 /* ============================================================== Menu */
 #open-menu {
     display: none;
@@ -93,7 +112,7 @@ sup {
 .menu-bar {
     display: grid;
     gap: 15px;
-    grid-template-columns: 2fr 3fr 3fr 3fr 2fr;
+    grid-template-columns: 3fr 2fr 3fr 3fr 2fr;
     text-align: center;
     margin-top: 1.5rem;
     font-size: 1.1rem;
@@ -108,6 +127,7 @@ sup {
 .menu-bar div:hover, .highlighted, .side-nav div:hover {
     background-color: rgba(81, 200, 118, .65) !important;
 }
+
 /* ============================================================== Content */
 .main {
     font-size: 1.1rem;
@@ -118,11 +138,6 @@ sup {
 }
 .main p:last-child {
     margin-bottom: 0;
-}
-.two-columns {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1.5rem;
 }
 h2 {
     margin: 1.5rem 0 1rem 0;
@@ -138,6 +153,30 @@ a, .link-green {
     text-underline-offset: 2px;
     cursor: pointer;
 }
+
+/* ============================================================== disclaimer */
+#disclaimer-container {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffffdd;
+}
+#disclaimer {
+    width: 12rem;
+    background-color: #cceedb;
+    border-radius: var(--default-radius);
+    padding: .5rem;
+    margin: auto;
+}
+#disclaimer button {
+    margin-top: 1rem;
+}
+
 /* ============================================================== Lists */
 ul {
     list-style-type: "+";
@@ -168,21 +207,14 @@ ul.space-between-li li {
 }
 /* ============================================================== Portrait */
 .portrait-container {
-    display: flex;
-    flex-direction: column;
     float: left;
-    margin-right: 1rem;
+    margin: 0 1rem 1rem 0;
+    height: auto;
 }
 #portrait-vincent {
-    width: 14rem;
+    width: 10rem;
 }
-.portrait-description {
-    margin-top: 0.2rem;
-    padding: 0.1rem;
-    font-size: .8rem;
-    font-style: italic;
-    background: var(--transp-light-green);
-}
+
 /* ============================================================== Footer */
 .icons-bottom {
     font-size: 0.9rem;
@@ -194,6 +226,8 @@ ul.space-between-li li {
     display: flex;
     justify-content: flex-start;
     align-items: center;
+
+    clear: left;
 }
 .icon-bottom, .copyright-text {
     user-select: none;
@@ -223,14 +257,16 @@ ul.space-between-li li {
     }
     .grid-header {
         display: grid;
-        grid-template-columns: 1fr auto;
+        grid-template-columns: 1fr 3rem;
     }
 
     /* ========================================================== Side-Nav */
     #open-menu {
-        display: block;
+        display: flex;
+        justify-content: center;
+        align-items: center;
         color: var(--light-green);
-        font-size: 2.5rem;
+        font-size: 2.8rem;
         cursor: pointer;
         transition: color .3s;
         user-select: none;
@@ -260,12 +296,6 @@ ul.space-between-li li {
     }
 }
 
-@media screen and (max-width: 1000px) {
-    .two-columns {
-        display: block;
-    }
-}
-
 @media screen and (max-width: 800px) {
     .main-center {
         margin: 0;
@@ -277,10 +307,10 @@ ul.space-between-li li {
         width: 50vw;
     }
     .flex-header img {
-        width: 200px;
+        width: 13rem;
     }
     #description-top {
-        font-size: 1.3rem;
+        font-size: 1.7rem;
     }
 }
 @media screen and (max-width: 500px) {

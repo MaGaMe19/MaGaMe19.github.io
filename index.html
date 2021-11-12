@@ -7,12 +7,11 @@
     <meta name="description" content="perfectionis - your commercial pharma/biotech team extension">
     <meta name="keywords" content="perfectionis,pharma,biotech,extension">
     <meta name="author" content="Vincent Metzler">
-    <script src="https://unpkg.com/vue@next"></script>
+    <script src="https://unpkg.com/vue@3.2.21"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Teko&display=swap">
     <link href="https://fonts.googleapis.com/css2?family=Nunito&family=Poppins&family=Quicksand&family=Ubuntu&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="graphics/Icon_C.png">
-    <script src="reportWindowSize.js"></script>
     <title>perfectionis</title>
 </head>
 <body>
@@ -24,17 +23,18 @@
         <div class="main-center">
             <div class="grid-header">
                 <div class="flex-header">
-                    <img src="graphics/Perfectionis_Logo_C.png" id="logo" alt="perfectionis logo" v-on:click="switchToTab('Why perfectionis')" title="Home">
-                    <div id="description-top">
-                        your commercial pharma/biotech team extension
-                        
-                        <!-- <span id="report-size">
-                            <span id="width"></span><span>px x </span><span id="height"></span><span>px</span>
-                        </span> -->
-                    </div>
+                    <img src="graphics/Perfectionis_Logo_C.png" id="logo" alt="perfectionis logo" v-on:click="switchToTab('Who perfectionis is')" title="Home">
+                    <div id="description-top">your commercial pharma/biotech team extension</div>
                 </div>
                 <div onclick="javascript:toggleMenu()" title="Open / Close the side navigation">
                     <span id="open-menu">&#9776;</span>
+                </div>
+            </div>
+            
+            <div v-if="!(disclaimerSeen)" id="disclaimer-container">
+                <div id="disclaimer">
+                    <div>Perfectionis GmbH does not collect any user information through this website, no cookies are used.</div>
+                    <button v-on:click="disclaimer()">Okay</button>
                 </div>
             </div>
 
@@ -76,26 +76,24 @@
             </div>
             <div v-if="currentTab == 'Who perfectionis is'">
                 <h2>Who perfectionis is</h2>
-                <div class="main two-columns">
-                    <div>
-                        <div class="portrait-container">
-                            <img src="resources/portrait_vincent.jpg" alt="Portrait of Vincent" id="portrait-vincent" width title="&copy; Mattia Metzler">
-                            <div class="portrait-description">Vincent in 2021</div>
-                        </div>
-                        <p>
-                            <b>Perfectionis GmbH</b> has been founded by <g>Dr. Vincent Metzler</g>, an established executive in the international pharmaceutical & biotechnology industry.
-                        </p>
-                        <p>
-                            Overall, Vincent brings over 20 years of commercial operations experience in the international top-pharma and biotech industry, covering the areas of orphan/ultra-orphan drugs, cell therapies, targeted therapies and supportive care, in various therapeutic areas such as oncology, hematology, nephrology, hepatology, neurology and immunology.
-                        </p>
-                        <p>
-                            Vincent holds a Ph.D. in Molecular Biology from the University of Berne, Switzerland. He speaks fluently English, French and German.
-                        </p>
+                <div class="main">
+                    <div class="portrait-container">
+                        <img src="resources/portrait_vincent.jpg" alt="Portrait of Vincent" id="portrait-vincent" width title="&copy; Mattia Metzler">
+                    </div>
+                    <p>
+                        <b>Perfectionis GmbH</b> has been founded by <g>Dr. Vincent Metzler</g>, an established executive in the international pharmaceutical & biotechnology industry.
+                    </p>
+                    <p>
+                        Overall, Vincent brings over 20 years of commercial operations experience in the international top-pharma and biotech industry, covering the areas of orphan/ultra-orphan drugs, cell therapies, targeted therapies and supportive care, in various therapeutic areas such as oncology, hematology, nephrology, hepatology, neurology and immunology.
+                    </p>
+                    <p>
+                        Vincent holds a Ph.D. in Molecular Biology from the University of Berne, Switzerland. He speaks fluently English, French and German.
+                    </p>
+                    <button v-on:click="toggleCareer()" v-if="!showFullCareer">Read more</button>
+                    <div v-if="showFullCareer">
                         <p>
                             Besides leading Perfectionis GmbH, Vincent also is the CEO of Kither Biotech, a preclinical stage biopharmaceutical company developing novel therapies for rare pulmonary diseases with high unmet medical needs. The company’s expertise comprises the effective delivery of signal transduction inhibition to the respiratory system, offering a strong potential for improved efficacy and safety in the lung for patients with Cystic Fibrosis, Idiopathic Pulmonary Fibrosis and other respiratory diseases. 
                         </p>
-                    </div>
-                    <div>
                         <p>
                             Before founding Perfectionis GmbH, Vincent acted as Vice President, Head of Marketing and Commercial Operations, Europe, at Atara Biotherapeutics, a leading immunotherapy company developing allogeneic, off-the-shelf virus-specific T cells for the treatment of virus-associated disorders like Epstein-Barr Virus-positive Post-Transplant Lymphoproliferative Disease (EBV+ PTLD). In this role Vincent was member of the European Leadership Team, driving the commercial expansion of Atara Biotherapeutics’ operations across the major European markets, and leading all marketing and commercial operations strategies and initiatives for the launch of the first cell therapy of its kind in Europe, in an ultra-rare disease.
                         </p>
@@ -189,25 +187,31 @@
                 </div>
             </div>
             <div class="icons-bottom">
-                <div class="icon-bottom" v-on:click="showAGB()" title="View the General Terms and Conditions (Allgemeine Geschäftsbedingungen)">GTC&nbsp;/&nbsp;AGB</div>
-                <div class="copyright" title="Toggle copyright information">
-                    <span v-on:click="toggleCopyright()" class="icon-bottom">C</span>
-                    <span v-if="copyrightShown" class="copyright-text">Copyright &copy; 2020-2021 Perfectionis GmbH. All rights reserved.</span>
-                </div>
+                <div class="icon-bottom" v-on:click="showAGB()" title="View the General Terms and Conditions (Allgemeine Geschäftsbedingungen)">General Terms and Conditions</div>
+                <div class="copyright-text">Copyright &copy; 2020-2021 Perfectionis GmbH. All rights reserved.</div>
             </div>
         </div>
     </div>
     
     <script>
         var ref = Vue.ref;
-        var computed = Vue.computed;
 
         Vue.createApp({
             setup() {
                 
+                let disclaimerSeen = ref(localStorage.getItem("disclaimerSeen"));
+                if (disclaimerSeen.value == null) {
+                    disclaimerSeen.value = false;
+                }
+
+                function disclaimer() {
+                    disclaimerSeen.value = true;
+                    localStorage.setItem("disclaimerSeen", true);
+                }
+
                 let menuOptions = [
-                    "Why perfectionis",
                     "Who perfectionis is",
+                    "Why perfectionis",
                     "What perfectionis offers",
                     "How perfectionis operates",
                     "Contact"
@@ -215,7 +219,7 @@
 
                 let currentTab = ref(localStorage.getItem("currentTab"));
                 if (currentTab.value == null) {
-                    currentTab.value = "Why perfectionis";
+                    currentTab.value = "Who perfectionis is";
                     localStorage.setItem("currentTab", "Why perfectionis");
                 }
 
@@ -226,29 +230,25 @@
                         toggleMenu();
                 }
 
-                let copyrightShown = ref(false);
-                function toggleCopyright() {
-                    if (copyrightShown.value == false) {
-                        copyrightShown.value = true;
-                        setTimeout(() => {
-                            copyrightShown.value = false;
-                        }, 5000);
-                    } else {
-                        copyrightShown.value = false;
-                    }
+                function showAGB() {
+                    window.open("/resources/Perfectionis GmbH_AGBs_E_20210930.pdf"); // TODO: change url
                 }
 
-                function showAGB() {
-                    window.open("resources/Perfectionis GmbH_AGBs_E_20210930.pdf"); // TODO: change url
+                let showFullCareer = ref(false);
+
+                function toggleCareer() {
+                    showFullCareer.value = true;
                 }
 
                 return {
                     menuOptions,
                     switchToTab,
                     currentTab,
-                    copyrightShown,
-                    toggleCopyright,
                     showAGB,
+                    disclaimerSeen,
+                    disclaimer,
+                    showFullCareer,
+                    toggleCareer,
                 }
             }
         }).mount("#app");
@@ -265,7 +265,7 @@
             } else {
                 sideNavOpen = true;
                 sideNav.style.left = 0;
-                openMenuBtn.innerHTML = "&#10006;";
+                openMenuBtn.innerHTML = "&#10005;";
             }
         }
     </script>
