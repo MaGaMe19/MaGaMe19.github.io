@@ -131,6 +131,8 @@ button:hover {
 /* ============================================================== Content */
 .main {
     font-size: 1.1rem;
+    display: grid;
+    grid-template-columns: auto auto;
 }
 .main p {
     margin-top: 0;
@@ -205,14 +207,20 @@ ul.black li::marker {
 ul.space-between-li li {
     margin-bottom: 1rem;
 }
-/* ============================================================== Portrait */
-.portrait-container {
+/* ============================================================== Images */
+.image-container {
     float: left;
     margin: 0 1rem 1rem 0;
     height: auto;
 }
-#portrait-vincent {
-    width: 10rem;
+.image {
+    height: 10rem;
+}
+.vincent {
+    height: 15rem;
+}
+.what {
+    border: 1px solid black;
 }
 
 /* ============================================================== Footer */
@@ -312,12 +320,23 @@ ul.space-between-li li {
     #description-top {
         font-size: 1.7rem;
     }
+    .main {
+        display: block;
+    }
+    .image-container {
+        float: none;
+    }
 }
 @media screen and (max-width: 500px) {
     .side-nav {
         width: 70vw;
     }
-    #portrait-vincent {
-        width: 9rem;
+    .image {
+        height: 8rem;
+    }
+    .vincent {
+        height: 13rem;
+        float: left;
+        margin: 0 1rem 1rem 0;
     }
 }
