@@ -217,6 +217,7 @@ ul.space-between-li li {
 .image {
     height: 10rem;
     filter: hue-rotate(30deg);
+    /* z-index: -1; */
 }
 .vincent {
     height: 15rem;
@@ -297,6 +298,7 @@ ul.space-between-li li {
         transition: .3s;
         padding: 1.5rem;
         font-size: 1.2rem;
+        z-index: 100;
     }
     .side-nav div {
         padding: .7rem;
