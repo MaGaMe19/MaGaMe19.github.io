@@ -1,7 +1,8 @@
 /* ============================================================== Default */
 :root {
-    --light-green: #00B050;
-    --transp-light-green: rgba(81, 220, 118, 0.3);
+    --light-green: #009b46;
+    --transparent-green: rgba(81, 220, 118, 0.3);
+    --transparent-light-green: rgba(81, 200, 118, .65);
     --default-radius: 8px;
     --font: "Ubuntu", monospace; /* available: Nunito, Poppins, Quicksand, Ubuntu */
 }
@@ -41,7 +42,7 @@ sup {
 button {
     outline: none;
     font-family: var(--font);
-    background-color: var(--transp-light-green);
+    background-color: var(--transparent-green);
     border: 1px solid black;
     border-radius: 4px;
     padding: .2rem 1rem;
@@ -51,7 +52,7 @@ button {
     color: black;
 }
 button:hover {
-    background-color: rgba(81, 200, 118, .65) !important;
+    background-color: var(--transparent-light-green) !important;
 }
 
 /* ============================================================== Background */
@@ -120,12 +121,12 @@ button:hover {
 .menu-bar div {
     padding: 15px;
     border-radius: var(--default-radius);
-    background-color: var(--transp-light-green);
+    background-color: var(--transparent-green);
     cursor: pointer;
     transition: background-color .3s;
 }
 .menu-bar div:hover, .highlighted, .side-nav div:hover {
-    background-color: rgba(81, 200, 118, .65) !important;
+    background-color: var(--transparent-light-green) !important;
 }
 
 /* ============================================================== Content */
@@ -215,9 +216,11 @@ ul.space-between-li li {
 }
 .image {
     height: 10rem;
+    filter: hue-rotate(30deg);
 }
 .vincent {
     height: 15rem;
+    filter: none !important;
 }
 .what {
     border: 1px solid black;
@@ -226,7 +229,7 @@ ul.space-between-li li {
 /* ============================================================== Footer */
 .icons-bottom {
     font-size: 0.9rem;
-    background-color: var(--transp-light-green);
+    background-color: var(--transparent-green);
     margin-top: 3rem;
     padding: 10px;
     border-radius: var(--default-radius);
@@ -246,7 +249,7 @@ ul.space-between-li li {
     background-color: rgba(242, 255, 248, .8);
 }
 .icon-bottom:hover {
-    background-color: var(--transp-light-green);
+    background-color: var(--transparent-green);
 }
 .icon-bottom {
     cursor: pointer;
