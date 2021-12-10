@@ -133,7 +133,7 @@ button:hover {
 .main {
     font-size: 1.1rem;
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: 16rem auto;
 }
 .main p {
     margin-top: 0;
@@ -210,21 +210,17 @@ ul.space-between-li li {
 }
 /* ============================================================== Images */
 .image-container {
-    float: left;
     margin: 0 1rem 1rem 0;
     height: auto;
 }
 .image {
-    height: 10rem;
-    filter: hue-rotate(30deg);
+    width: 15rem;
+    filter: hue-rotate(40deg);
     /* z-index: -1; */
 }
 .vincent {
-    height: 15rem;
     filter: none !important;
-}
-.what {
-    border: 1px solid black;
+    width: 10rem;
 }
 
 /* ============================================================== Footer */
@@ -328,8 +324,9 @@ ul.space-between-li li {
     .main {
         display: block;
     }
-    .image-container {
-        float: none;
+    .vincent {
+        float: left;
+        margin: 0 1rem 1rem 0;
     }
 }
 @media screen and (max-width: 500px) {
@@ -337,11 +334,9 @@ ul.space-between-li li {
         width: 70vw;
     }
     .image {
-        height: 8rem;
+        width: 10rem;
     }
-    .vincent {
-        height: 13rem;
-        float: left;
-        margin: 0 1rem 1rem 0;
+    .main {
+        grid-template-columns: 11rem auto;
     }
 }
