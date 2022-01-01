@@ -97,11 +97,6 @@ button:hover {
     width: 17rem;
     cursor: pointer;
 }
-#description-top {
-    font-family: "Teko";
-    font-size: 2rem;
-    margin-left: .2rem;
-}
 
 /* ============================================================== Menu */
 #open-menu {
@@ -220,7 +215,6 @@ ul.space-between-li li {
 }
 .vincent {
     filter: none !important;
-    width: 10rem;
 }
 
 /* ============================================================== Footer */
@@ -317,9 +311,6 @@ ul.space-between-li li {
     }
     .flex-header img {
         width: 13rem;
-    }
-    #description-top {
-        font-size: 1.7rem;
     }
     .main {
         display: block;
