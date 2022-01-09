@@ -13,6 +13,7 @@ body {
     font-family: var(--font);
     font-weight: 100;
     margin: 0;
+    padding: 0;
     background-color: #d3ebde;
     overflow-y: scroll;
 }
@@ -85,10 +86,15 @@ button:hover {
     background-color: #f6fffacc;
     border-radius: var(--default-radius);
     width: 85%;
-    margin: auto;
-    padding: 20px;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding: 0 2rem;
+
+    display: grid;
+    grid-template-rows: 1fr auto;
 }
-.flex-header{
+.flex-header {
+    padding-top: 1rem;
     display: flex;
     align-items: baseline;
     flex-direction: column;
@@ -130,12 +136,22 @@ button:hover {
     display: grid;
     grid-template-columns: 16rem auto;
 }
+.main.no-grid {
+    display: block !important;
+}
 .main p {
     margin-top: 0;
     line-height: 1.2rem;
 }
 .main p:last-child {
     margin-bottom: 0;
+}
+h1.welcome-message {
+    font-size: 3rem;
+    margin: 5rem 0;
+}
+.text-center { 
+    text-align: center;
 }
 h2 {
     margin: 1.5rem 0 1rem 0;
@@ -150,6 +166,9 @@ a, .link-green {
     text-decoration-thickness: 2px;
     text-underline-offset: 2px;
     cursor: pointer;
+}
+#welcome-text-mobile {
+    display: none;
 }
 
 /* ============================================================== disclaimer */
@@ -221,9 +240,11 @@ ul.space-between-li li {
 .icons-bottom {
     font-size: 0.9rem;
     background-color: var(--transparent-green);
-    margin-top: 3rem;
+    margin: 3rem 0 1.5rem 0;
     padding: 10px;
     border-radius: var(--default-radius);
+
+    min-height: 2rem;
 
     display: flex;
     justify-content: flex-start;
@@ -260,6 +281,12 @@ ul.space-between-li li {
     .grid-header {
         display: grid;
         grid-template-columns: 1fr 3rem;
+    }
+    #welcome-text-mobile {
+        display: block;
+    }
+    #welcome-text-desktop {
+        display: none;
     }
 
     /* ========================================================== Side-Nav */
