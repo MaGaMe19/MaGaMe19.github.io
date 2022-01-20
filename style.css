@@ -93,15 +93,16 @@ button:hover {
     display: grid;
     grid-template-rows: 1fr auto;
 }
-.flex-header {
-    padding-top: 1rem;
-    display: flex;
-    align-items: baseline;
-    flex-direction: column;
+.grid-header {
+    padding-top: .5rem;
 }
-.flex-header img {
+.grid-header img {
+    padding-top: 1rem;
     width: 17rem;
     cursor: pointer;
+}
+.noHeight {
+    height: 0;
 }
 
 /* ============================================================== Menu */
@@ -148,7 +149,7 @@ button:hover {
 }
 h1.welcome-message {
     font-size: 3rem;
-    margin: 5rem 0;
+    margin: 4rem 0;
 }
 .text-center { 
     text-align: center;
@@ -169,6 +170,10 @@ a, .link-green {
 }
 #welcome-text-mobile {
     display: none;
+}
+#logoHome {
+    width: 30rem;
+    margin-bottom: 2rem;
 }
 
 /* ============================================================== disclaimer */
@@ -337,9 +342,6 @@ ul.space-between-li li {
     .side-nav {
         width: 50vw;
     }
-    .flex-header img {
-        width: 13rem;
-    }
     .main {
         display: block;
     }
@@ -347,8 +349,14 @@ ul.space-between-li li {
         float: left;
         margin: 0 1rem 1rem 0;
     }
+    #logoHome {
+        width: 20rem;
+    }
 }
 @media screen and (max-width: 500px) { /* Smaller images and Side-Nav */
+    .grid-header img {
+        width: 13rem;
+    }
     .side-nav {
         width: 70vw;
     }

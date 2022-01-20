@@ -22,9 +22,11 @@
         <div class="main-center">
             <div class="content">
                 <div class="grid-header">
-                    <div class="flex-header">
-                        <img src="graphics/Perfectionis_Logo_C.png" id="logo" alt="perfectionis logo" v-on:click="switchToTab('home')" title="Home">
-                    </div>
+                    <img src="graphics/Perfectionis_Logo_C.png" 
+                    alt="perfectionis logo" 
+                    v-on:click="switchToTab('home')" 
+                    title="Home"
+                    :class="{noHeight: currentTab == 'home'}">
                     <div onclick="javascript:toggleMenu()" title="Open / Close the side navigation">
                         <span id="open-menu">&#9776;</span>
                     </div>
@@ -50,7 +52,8 @@
                 </div>
     
                 <div v-if="currentTab == 'home'" class="text-center">
-                    <h1 class="welcome-message">Welcome to <g>perfectionis</g></h1>
+                    <h1 class="welcome-message">Welcome to</h1>
+                    <img src="graphics/Perfectionis_Logo_C.png" id="logoHome" alt="perfectionis logo" title="Home">
                     <div class="main no-grid">
                         <p id="welcome-text-desktop">
                             Click on the menu items above to learn more about <g>perfectionis</g>, <br>
