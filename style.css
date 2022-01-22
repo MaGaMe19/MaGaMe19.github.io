@@ -7,7 +7,7 @@
     --font: "Ubuntu", monospace; /* available: Nunito, Poppins, Quicksand, Ubuntu */
 }
 html {
-    font-size: 1em; /* change to change sizing of whole website */
+    font-size: 1em; /* change to adjust sizing of whole website */
 }
 body {
     font-family: var(--font);
